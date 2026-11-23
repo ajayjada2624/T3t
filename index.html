@@ -183,12 +183,13 @@
   .card p{margin-bottom:0;font-size:15px}  
   .card a{text-decoration:none;color:inherit;display:block;}  
   .card a:hover h3{text-decoration:underline;}  
-  
-  .game-gallery{display:flex;flex-direction:column;gap:30px;margin:30px auto 50px;max-width:100%}  
-  .game-photo-card{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,0.5)}  
-  .game-photo-card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 15px 35px rgba(56,189,248,0.15)}  
-  .game-photo-card img{width:100%;height:auto;object-fit:contain;display:block;margin:0 auto}  
-  .game-photo-caption{padding:16px 20px;font-size:19px;font-weight:800;color:var(--accent);background:#0b1326;margin:0;letter-spacing:0.5px;border-top:1px solid var(--line)}  
+
+  .extra-games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:16px;margin:24px 0 36px}
+  .extra-game-box{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 10px;text-align:center;transition:transform .2s,border-color .2s}
+  .extra-game-box:hover{transform:translateY(-3px);border-color:var(--accent)}
+  .extra-game-box img{width:105px;height:105px;object-fit:cover;border-radius:14px;display:block;margin:0 auto 10px}
+  .extra-game-btn{display:inline-block;padding:8px 16px;background:linear-gradient(110deg,#0284c7,#0369a1);color:#ffffff;text-decoration:none;border-radius:8px;font-weight:700;font-size:14px}
+  .extra-game-btn:hover{opacity:0.92}
 
   table{width:100%;border-collapse:collapse;margin:20px 0 40px;font-size:15px;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}  
   td,th{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left}  
@@ -211,8 +212,6 @@
   
   @media(max-width:768px){  
     .grid{grid-template-columns:1fr}  
-    .game-gallery{gap:20px;margin-bottom:35px}  
-    .game-photo-caption{font-size:16px;padding:12px 16px}  
   }  
   @media(max-width:650px){  
     header{padding:10px 10px}  
@@ -241,7 +240,7 @@
   <button class="menu" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>  
   <nav>  
     <a href="new-games.html">New Games</a>  
-    <a href="#games-preview">Games</a>  
+    <a href="#more-games">Games</a>  
     <a href="#features">Features</a>  
     <a href="#install">Install Guide</a>  
     <a href="#payments">Withdrawals</a>  
@@ -266,24 +265,38 @@
     <a class="action" href="#latest-guides">View Guides</a>  
   </div>  
 
-  <!-- 3 Large Game Photos Section -->  
-  <section id="games-preview">  
-    <h2>Popular Games on T3T</h2>  
-    <div class="game-gallery">  
-      <div class="game-photo-card">  
-        <img src="T3t%20Game%20Photos%201.jpg" alt="T3T Game App - Teen Patti &amp; Rummy" loading="lazy">  
-        <p class="game-photo-caption">Teen Patti &amp; Card Games</p>  
-      </div>  
-      <div class="game-photo-card">  
-        <img src="T3t%20Game%20Photos%202.jpg" alt="T3T Game App - Aviator Crash Game" loading="lazy">  
-        <p class="game-photo-caption">Aviator &amp; Multipliers</p>  
-      </div>  
-      <div class="game-photo-card">  
-        <img src="T3t%20Game%20Photos%203.jpg" alt="T3T Game App - Classic Online Slots" loading="lazy">  
-        <p class="game-photo-caption">Online Slots &amp; Jackpots</p>  
-      </div>  
-    </div>  
-  </section>  
+  <!-- 11 Games Photos & Referral Download Buttons -->
+  <section id="more-games">
+    <div class="extra-games-grid" id="extraGamesGrid"></div>
+  </section>
+
+  <script>
+    (function() {
+      const extraGames = [
+        { name: "IS7 Game", link: "https://share.is7v77.com/share/agent/AA62T7LZ?data=eyJtIjoyLCJsYW5nIjoiZW4iLCJpZCI6MX0=", img: "is7.png" },
+        { name: "SS7 Game", link: "https://invite.ss7gameg.com/?code=450YQES", img: "ss7.png" },
+        { name: "EK5 Game", link: "https://ek5win.com?inviteCode=M96JM3N&from=app", img: "ek5.png" },
+        { name: "RajAce Game", link: "https://share.rajace9.com/share/agent/ADWWBUM7?data=eyJtIjoyLCJsYW5nIjoiZW4iLCJpZCI6MX0=", img: "rajace.png" },
+        { name: "IE777 Game", link: "https://share.ie7gaem1.com/share/agent/AA6TUV1V?data=eyJtIjoyLCJsYW5nIjoiZW4iLCJpZCI6MX0=", img: "ie777.png" },
+        { name: "EK1 Game", link: "https://share.280jjh.com/share/agent/AF63FA0Q?data=eyJtIjoyLCJsYW5nIjoiZW4iLCJpZCI6MX0=", img: "ek1.png" },
+        { name: "F8.GAME", link: "https://share-ijtvvfn3ct.f8game.online/share/agent/AS6TPS06?data=eyJtIjoyLCJsYW5nIjoiZW4iLCJpZCI6MX0=", img: "f8.png" },
+        { name: "3T3 Game", link: "https://3t3vip.com?inviteCode=CDTXHUN&from=app", img: "3t3.png" },
+        { name: "IN7 Game", link: "https://share.in7v5.com/share/agent/AA6JXC91?data=eyJtIjoyLCJsYW5nIjoiaGkiLCJpZCI6MX0=", img: "in7.png" },
+        { name: "AU6 Game", link: "https://au6vip.com?inviteCode=2Y632QN&from=app", img: "au6.png" },
+        { name: "360INR Game", link: "https://360inrteam.com/?code=V68LJIS", img: "360inr.png" }
+      ];
+
+      const grid = document.getElementById("extraGamesGrid");
+      if (grid) {
+        grid.innerHTML = extraGames.map(game => `
+          <div class="extra-game-box">
+            <img src="${game.img}" alt="${game.name}" loading="lazy">
+            <a href="${game.link}" target="_blank" rel="nofollow noopener" class="extra-game-btn">Download</a>
+          </div>
+        `).join("");
+      }
+    })();
+  </script>
 
   <div class="note">  
     <h2>What is T3T Game?</h2>  
